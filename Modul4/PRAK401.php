@@ -37,19 +37,23 @@ if(isset($_POST['submit'])){
                 $explod = explode(" ",$nilai);
                 $count = count($explod);
                 $x=0;
-            
-                for($i=0; $i< $panjang; $i++){
-                    echo "<tr>";
-                    for($j=0; $j< $lebar; $j++){
-                        echo "<td>".$explod[$x]."</td>";
-                        $x++;
+                
+                if($count == $panjang*$lebar){
+                    for($i=0; $i< $panjang; $i++){
+                        echo "<tr>";
+                        for($j=0; $j< $lebar; $j++){
+                            echo "<td>".$explod[$x]."</td>";
+                            $x++;
+                        }
+                        echo "</tr>";
                     }
-                    echo "</tr>";
+
+                }
+                else{
+                    echo "Panjang nilai tidak sesuai dengan ukuran matriks";
                 }
             }
-            else if($count > $panjang*$lebar){
-                echo "Panjang nilai tidak sesuai dengan ukuran matriks";
-            }
+
         }
     ?>
     </table>
